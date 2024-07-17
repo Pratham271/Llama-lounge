@@ -5,18 +5,7 @@ import LinksRenderer from "@/components/LinksRenderer";
 import ChatWrapper from "@/components/chat/ChatWrapper";
 
 export default async function Home() {
-  // const url = "https://js.langchain.com/v0.2/docs";
 
-  // const compiledConvert = compile({ wordwrap: 130 }); // returns (text: string) => string;
-
-  // const loader = new RecursiveUrlLoader(url, {
-  //   extractor: compiledConvert,
-  //   maxDepth: 100,
-    
-  // });
-
-  // const docs = await loader.load();
-  // console.log(docs)
   return (
     <div className='flex-1 justify-between flex flex-col h-[calc(100vh-3.5rem)]'>
     <div className='mx-auto w-full max-w-8xl grow lg:flex xl:px-2'>
