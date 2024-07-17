@@ -23,6 +23,7 @@
     "class-variance-authority": "^0.7.0",
     "closevector-hnswlib-node": "^0.1.1",
     "closevector-node": "^0.1.6",
+    "closevector-web": "^0.1.6",
     "clsx": "^2.1.1",
     "html-to-text": "^9.0.5",
     "jsdom": "^24.1.0",
