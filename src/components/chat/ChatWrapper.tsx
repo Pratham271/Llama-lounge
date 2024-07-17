@@ -75,7 +75,7 @@ const handleUserMessageSubmission = async(userMessage:string) => {
     let lastAppendResponse = "";
     try {
       
-      const streamableValue = await myAction(userMessage,messages, "gpt-3.5-turbo");
+      const streamableValue = await myAction(userMessage,messages, "gpt-4");
       for await(const message of readStreamableValue(streamableValue)){
         const typedMessage = message as StreamMessage
         SetMessages((prevMessages) => {

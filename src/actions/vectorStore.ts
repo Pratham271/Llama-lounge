@@ -6,7 +6,7 @@ import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { CloseVectorNode } from "@langchain/community/vectorstores/closevector/node";
 import { embeddings } from "@/constants/embeddings";
 
-const url = "https://js.langchain.com/v0.2/docs";
+const url = "https://js.langchain.com/v0.2/docs/integrations/platforms/";
 
 export async function generateWebsiteVectorStore(){
     try {

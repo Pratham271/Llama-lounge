@@ -33,6 +33,12 @@ const LlmResponseComponent = ({content}:{content:string}) => {
                               className="mt-3 list-inside list-disc first:mt-0"
                             />
                           ),
+                          a: ({ node, ...props }) => (
+                            <a
+                              {...props}
+                              className="mt-3 text-underline text-blue-500"
+                            />
+                          ),
                           li: ({ node, ...props }) => <li {...props} className="mt-1" />,
                     }}>
               {cleanedMarkdown}

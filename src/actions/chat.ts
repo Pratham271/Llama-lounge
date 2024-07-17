@@ -29,11 +29,9 @@ async function myAction(userMessage: string, prevMessages: Message[] ,model:stri
             userMessage: msg.userMessage
           })) : [];
 
-        const result = await loadedVectorStore.similaritySearch(userMessage, 4);
-        // console.log("Result loaded from cloud: ",result);
-        // @ts-ignore
         const results = await loadedVectorStore.similaritySearch(userMessage, 4);
-
+        console.log(results)
+        
         const chatCompletion = await openai.chat.completions.create({
             
             messages: 
