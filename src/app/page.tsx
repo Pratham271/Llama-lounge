@@ -2,6 +2,7 @@ import Image from "next/image";
 import { compile } from "html-to-text";
 import { RecursiveUrlLoader } from "@langchain/community/document_loaders/web/recursive_url";
 import LinksRenderer from "@/components/LinksRenderer";
+import ChatWrapper from "@/components/chat/ChatWrapper";
 
 export default async function Home() {
   // const url = "https://js.langchain.com/v0.2/docs";
@@ -27,7 +28,7 @@ export default async function Home() {
       </div>
 
       <div className="shrink-0 flex-[0.75] border-t border-gray-200 lg:w-96 lg:border-l h-screen overflow-y-scroll lg:border-t-0">
-          {/* <ChatWrapper name={"session.user.name"} linksId={link.id} fileId={""}/> */}
+          <ChatWrapper/>
       </div>
     </div>
   </div>

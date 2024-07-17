@@ -12,20 +12,22 @@ import UserMessageComponent from './UserMessageComponent'
 // import getSources from '../../actions/sources'
 import SourcesComponent from './SourcesComponent'
 // import { Message, StreamMessage } from '../../types/types'
-import { Link1Icon } from '@radix-ui/react-icons'
+
 // import { typeAtom } from '../../store/atoms/types';
 import LLMResponseComponent from './LLMResponseComponent';
 import ChatInput from './ChatInput';
 
 
-const ChatComponent = ({name,heading}:{name:string,heading:{res:boolean, docType: string | null | undefined}}) => {
+const ChatComponent = () => {
    // set up actions that will be used to stream all the messages  
 //   const {myAction} = useActions<typeof AI>();
 //   const loading = useRecoilValue(loadingAtom)
 //   const [messages, SetMessages] = useState<Message[]>([]);
 //   const [input,setInput] = useRecoilState(inputAtom)
 //   const [initialMessage,setInitialMessage] = useRecoilState(initialMessageAtom)
-
+  const handleFormSubmit = () => {
+    console.log("hello there")
+  }
 //   const scrollRef = useRef<HTMLDivElement | null>(null)
   
 //   // const heading= useRecoilValue(headingAtom)
@@ -156,8 +158,13 @@ const ChatComponent = ({name,heading}:{name:string,heading:{res:boolean, docType
     //     </div>
     //     <ChatInput  handleFormSubmit={handleFormSubmit} isDisabled={false}/>
     // </div>
-    <div>
-        
+    <div className="relative min-h-full flex divide-y divide-zinc-200 flex-col justify-between gap-2">
+        { <div>
+           <h1 className="flex justify-center mt-16 z-10 text-2xl md:text-5xl  bg-clip-text text-transparent bg-gradient-to-b dark:from-neutral-200 dark:to-neutral-600  text-center font-sans font-bold from-stone-400 to-stone-800">Hi There</h1> 
+           <h1 className='text-center lg:mt-5 mt-3 text-lg lg:text-3xl font-bold dark:text-neutral-500 text-neutral-700'>{<p className='flex justify-center '>Good to see you <br /> How can I help you <span className='flex items-center leading-none justify-center lg:pt-10 pt-7 lg:pl-3 pl-2'></span> </p>}</h1>
+         </div>}
+      <ChatInput handleFormSubmit={handleFormSubmit} isDisabled={true}/>
+
     </div>
   )
 }

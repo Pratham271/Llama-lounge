@@ -1,10 +1,5 @@
 import React from 'react'
 import { ModeToggle } from './ui/toggle-mode'
-import { Button } from './ui/button';
-
-import Link from 'next/link';
-
-import Image from 'next/image';
 
 const Appbar = async() => {
 
