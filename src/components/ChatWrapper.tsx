@@ -15,6 +15,7 @@ import SourcesComponent from './SourcesComponent'
 import { Link1Icon } from '@radix-ui/react-icons'
 // import { typeAtom } from '../../store/atoms/types';
 import LLMResponseComponent from './LLMResponseComponent';
+import ChatInput from './ChatInput';
 
 
 const ChatComponent = ({name,heading}:{name:string,heading:{res:boolean, docType: string | null | undefined}}) => {
@@ -127,7 +128,7 @@ const ChatComponent = ({name,heading}:{name:string,heading:{res:boolean, docType
 //     }
 // }
   return (
-    // <div >
+    // <div>
     //     {loading && <div className="flex flex-col"><div className="flex flex-col justify-center pt-96"><Spinner/></div> <span className="text-center text-sm">Getting things ready for you...</span></div>}
     //     {initialMessage && <div>
     //       <h1 className="flex justify-center mt-16 z-10 text-2xl md:text-7xl  bg-clip-text text-transparent bg-gradient-to-b dark:from-neutral-200 dark:to-neutral-600  text-center font-sans font-bold from-stone-400 to-stone-800">Hello {name}</h1> 
@@ -153,7 +154,7 @@ const ChatComponent = ({name,heading}:{name:string,heading:{res:boolean, docType
     //     ))}
     //     <div ref={scrollRef}></div>
     //     </div>
-    //     <ChatForm handleKeyPress={handleKeyPress} handleFormSubmit={handleFormSubmit} handleNewFile={handleNewFile} response={heading.res}/>
+    //     <ChatInput  handleFormSubmit={handleFormSubmit} isDisabled={false}/>
     // </div>
     <div>
         
