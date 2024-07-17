@@ -19,7 +19,7 @@ export default async function Home() {
   return (
     <div className='flex-1 justify-between flex flex-col h-[calc(100vh-3.5rem)]'>
     <div className='mx-auto w-full max-w-8xl grow lg:flex xl:px-2'>
-      {/* left side docs renderer */}
+      {/* left side links renderer */}
       <div className="flex-1 xl:flex">
           <div className="px-4 py-6 sm:px-6 lg:pl-8 xl:flex-1 xl:pl-6">
               <LinksRenderer/>
