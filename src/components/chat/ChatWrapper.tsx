@@ -14,8 +14,8 @@ import LLMResponseComponent from './LLMResponseComponent';
 import ChatInput from './ChatInput';
 import { readStreamableValue, useActions } from 'ai/rsc';
 import { Message, StreamMessage } from '@/types';
-import { useRecoilState, useSetRecoilState } from 'recoil';
-import { initialMessageAtom, inputAtom, inputBoxDisabledAtom } from '@/store/atoms';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { aiModelAtom, initialMessageAtom, inputAtom, inputBoxDisabledAtom } from '@/store/atoms';
 import getSources from '@/actions/sources';
 
 
@@ -23,6 +23,7 @@ const ChatComponent = () => {
    // set up actions that will be used to stream all the messages  
   const {myAction} = useActions<typeof AI>();
 
+  const aiModel = useRecoilValue(aiModelAtom)
   const [messages, SetMessages] = useState<Message[]>([]);
   const [input,setInput] = useRecoilState(inputAtom)
   const [initialMessage,setInitialMessage] = useRecoilState(initialMessageAtom)
@@ -76,7 +77,7 @@ const handleUserMessageSubmission = async(userMessage:string) => {
     let lastAppendResponse = "";
     try {
       
-      const streamableValue = await myAction(userMessage,messages, "gpt-4");
+      const streamableValue = await myAction(userMessage,messages, aiModel);
       for await(const message of readStreamableValue(streamableValue)){
         const typedMessage = message as StreamMessage
         SetMessages((prevMessages) => {

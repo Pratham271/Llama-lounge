@@ -12,7 +12,7 @@ export const initialMessageAtom = atom({
 
 export const inputBoxDisabledAtom = atom({
     key: 'inputBoxDisabledAtom',
-    default: true
+    default: false
 })
 
 export const loadingAtom = atom({
@@ -20,7 +20,8 @@ export const loadingAtom = atom({
     default: false
 })
 
-export const typeAtom = atom({
-    key: "typeAtom",
-    default: ""
+
+export const aiModelAtom = atom({
+    key: "aiModelAtom",
+    default: "gpt-3.5-turbo"
 })
