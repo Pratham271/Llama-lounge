@@ -9,7 +9,7 @@ export default async function Home() {
 
   const loader = new RecursiveUrlLoader(url, {
     extractor: compiledConvert,
-    maxDepth: 200,
+    maxDepth: 100,
     
   });
 
