@@ -6,8 +6,6 @@ import Markdown from 'react-markdown'
 
 interface LLMResponseProps {
     llmResponse: string;
-    currentLlmResponse: string;
-    index: number
 }
 
 
@@ -27,7 +25,7 @@ const LlmResponseSkeleton = () => (
     </>
 );
 
-const LLMResponseComponent = ({llmResponse, currentLlmResponse, index}:LLMResponseProps) => {
+const LLMResponseComponent = ({llmResponse}:LLMResponseProps) => {
     const hasLlmResponse = llmResponse && llmResponse.trim().length > 0;
     const [copy, setCopy] = useState(false)
     const handleCopy = () => {
