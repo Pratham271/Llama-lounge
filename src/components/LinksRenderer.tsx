@@ -5,12 +5,15 @@ import { DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu'
 import { Button } from './ui/button'
 import { RiOpenaiFill } from "react-icons/ri";
 import { FaChevronDown } from "react-icons/fa6";
-import { useRecoilState } from 'recoil';
-import { aiModelAtom } from '@/store/atoms';
+import { useSetRecoilState } from 'recoil';
+import { aiModelAtom, docsAtoms } from '@/store/atoms';
+import { IoLinkSharp } from "react-icons/io5";
 
 const LinksRenderer = () => {
-  const [aiModel, setAIModel] = useRecoilState(aiModelAtom)
+  const setAIModel = useSetRecoilState(aiModelAtom)
   const [displayAIModel, setDisplayAIModel] = useState("GPT-3.5-Turbo")
+  const setDocsAtom = useSetRecoilState(docsAtoms)
+  const [displayDocs, setDisplayDocs] = useState("LangchainJS")
   return (
     <>
       <div className="h-14 w-full border-b border-zinc-200 flex items-center justify-between px-2">
@@ -40,6 +43,36 @@ const LinksRenderer = () => {
                 setDisplayAIModel("GPT-4o")
               }}>
                 GPT-4o
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>      
+        </div>
+        <div className="space-x-2 items-center">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button aria-label='openai' variant={"ghost"}>
+                <IoLinkSharp className="h-4 w-4"/>
+                <p className='px-1'>{displayDocs}</p> <FaChevronDown className='h-2.5 w-2.5 opacity-50'/>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem onSelect={() => {
+                setDocsAtom("langchainJS")
+                setDisplayDocs("LangchainJS")
+              }}>
+                Langchain-JS
+              </DropdownMenuItem>
+              <DropdownMenuItem onSelect={() => {
+                setDocsAtom("langchain")
+                setDisplayDocs("Langchain")
+              }}>
+                Langchain
+              </DropdownMenuItem>
+              <DropdownMenuItem onSelect={() => {
+                setDocsAtom("llama-index")
+                setDisplayDocs("LLama-Index")
+              }}>
+                LLama-Index
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>      

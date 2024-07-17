@@ -25,3 +25,8 @@ export const aiModelAtom = atom({
     key: "aiModelAtom",
     default: "gpt-3.5-turbo"
 })
+
+export const docsAtoms = atom({
+    key: "DocsAtom",
+    default: "langchainJS"
+})
