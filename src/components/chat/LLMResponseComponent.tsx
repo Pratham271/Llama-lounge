@@ -1,74 +1,49 @@
-"use client"
-import { CopyIcon } from '@radix-ui/react-icons';
-import React, { useState } from 'react'
+import React from 'react'
 import Markdown from 'react-markdown'
+import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '../ui/card'
+import LLmSkeleton from '../LLmSkeleton'
 
 
-interface LLMResponseProps {
-    llmResponse: string;
-}
 
-
-const LlmResponseSkeleton = () => (
-    <>
-        {Array.from({ length: 5 }).map((_, index) => (
-            <div key={index} className="p-2 w-10 sm:w-1/2 md:w-1/4 ">
-                {/* <div className="flex items-center space-x-2  bg-gray-100 p-3 rounded-lg h-full"> */}
-                    {/* <div className="w-5 h-5  bg-gray-400 rounded animate-pulse"></div> */}
-                    <div className="w-72 md:w-[40rem] lg:w-[70rem] h-1  bg-gray-400 rounded animate-pulse dark:bg-gray-200"></div>
-                    <br />
-                    <div className="w-60 md:w-96 lg:w-[40rem] h-1  bg-gray-400 rounded animate-pulse dark:bg-gray-200"></div>
-
-                {/* </div> */}
-            </div>
-        ))}
-    </>
-);
-
-const LLMResponseComponent = ({llmResponse}:LLMResponseProps) => {
-    const hasLlmResponse = llmResponse && llmResponse.trim().length > 0;
-    const [copy, setCopy] = useState(false)
-    const handleCopy = () => {
-        setCopy(true)
-        setTimeout(()=> {setCopy(false)},2000)
-        const code = document.getElementById("pretag")?.innerText
-        navigator.clipboard.writeText(code!)
-    }
+const LlmResponseComponent = ({content}:{content:string}) => {
+    const hasLLMResponse = content && content.trim().length > 0 
+    const cleanedMarkdown = content.replace(/=====/, ''); 
   return (
     <>
-      {
-        hasLlmResponse ? (
-            <div className='shadow-lg bg-white rounded-lg m-4 p-4 dark:bg-transparent'>
-                <div className='flex items-center mb-3'>
-                    <h2 className='text-lg font-semibold flex-grow'>Answer</h2>
-                    <img src="./mistral.png" alt="groq logo" className='w-6 h-6 mr-2' />
-                    <img src="./groq.png" alt="groq logo" className='w-6 h-6' />
-                </div>
-                <div className='leading-5'>
-                    <Markdown 
-                        components={{
-                            code: ({ node, ...props }) => (
-                                <code  {...props} className="bg-[#eeeaea] rounded p-[1.5px]  dark:bg-gray-500" />
-                              ),
-                              pre: ({ node, ...props }) => (
-                                <div className='relative'>
-                                    <pre id='pretag' {...props} className="bg-[#eeeaea] rounded-md m-[12px] p-[8px]  dark:bg-gray-500" />
-                                    <button onClick={handleCopy} className='absolute top-2 right-10 flex text-sm items-center font-light '>{copy ? "Copied" : <CopyIcon/>} {copy ? null : "Copy Code"}
-                                    </button>
-                                </div>
-                              ),
-                        }}>
-                        {llmResponse}
-                    </Markdown>
-                </div>
-            </div>
-        ):(
-          <div className='shadow-lg bg-white rounded-lg m-4 p-4 dark:bg-transparent'>
-            <LlmResponseSkeleton /> 
-          </div>
-        )}
+       {hasLLMResponse ? (
+        <Card className='flex flex-col justify-center align-middle'>
+        <CardHeader className='px-3'>
+            <CardTitle className='flex justify-between'>
+            Answer  
+            </CardTitle>
+        </CardHeader>
+        <CardContent className='text-md items-center'>
+            <Markdown components={{
+                        code: ({ node, ...props }) => (
+                            <code  {...props} className="bg-[#eeeaea] rounded p-[1.5px]  dark:bg-gray-800" />
+                          ),
+                          pre: ({ node, ...props }) => (
+                            <div className='relative'>
+                                <pre id='pretag' {...props} className="bg-[#eeeaea] rounded-md m-[12px] p-[8px]  dark:bg-gray-800" />
+                            </div>
+                          ),
+                          ul: ({ node, ...props }) => (
+                            <ul
+                              {...props}
+                              className="mt-3 list-inside list-disc first:mt-0"
+                            />
+                          ),
+                          li: ({ node, ...props }) => <li {...props} className="mt-1" />,
+                    }}>
+              {cleanedMarkdown}
+            </Markdown>
+        </CardContent>
+        <CardFooter></CardFooter>
+      </Card>
+       ): <div className='bg-white shadow-lg dark:bg-transparent rounded-md'><LLmSkeleton/></div>}
+       
     </>
   )
 }
 
-export default LLMResponseComponent
+export default LlmResponseComponent

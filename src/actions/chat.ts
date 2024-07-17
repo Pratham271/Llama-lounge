@@ -19,8 +19,8 @@ async function myAction(userMessage: string, prevMessages: Message[] ,model:stri
             uuid: process.env.NEXT_VECTOR_STORE_UUID || "",
             embeddings,
             credentials: {
-                key: process.env.VOYAGE_ACCESS_KEY,
-                secret: process.env.VOYAGE_SECRET,
+                key: process.env.VOYAGE_LINKS_ACCESS_KEY,
+                secret: process.env.VOYAGE_LINKS_SECRET,
             },
         });
         const formattedPrevMessages = prevMessages ? prevMessages.map((msg) => ({

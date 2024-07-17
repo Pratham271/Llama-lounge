@@ -3,15 +3,14 @@ import React, { useRef } from 'react'
 import { Textarea } from '../ui/textarea'
 import { Button } from '../ui/button'
 import { PaperPlaneIcon } from '@radix-ui/react-icons'
-// import { useRecoilState, useRecoilValue } from 'recoil';
-// import { inputAtom, inputBoxDisabledAtom } from '../../store/atoms/input';
-// import { loadingAtom } from '../../store/atoms/loading';
+import { inputAtom, inputBoxDisabledAtom, loadingAtom } from '@/store/atoms';
+import { useRecoilState, useRecoilValue } from 'recoil';
 
 const ChatInput = ({isDisabled, handleFormSubmit}: {isDisabled:boolean, handleFormSubmit:()=>void}) => {
 
-    // const [input,setInput] = useRecoilState(inputAtom)
+    const [input,setInput] = useRecoilState(inputAtom)
     // const [disabled,setDisabled] = useRecoilState(inputBoxDisabledAtom)
-    // const loading = useRecoilValue(loadingAtom)
+    const loading = useRecoilValue(loadingAtom)
 
     const textareaRef = useRef<HTMLTextAreaElement>(null)
 
@@ -26,8 +25,8 @@ const ChatInput = ({isDisabled, handleFormSubmit}: {isDisabled:boolean, handleFo
                             rows={1} 
                             maxRows={4} 
                             autoFocus 
-                            // value={input}
-                            // onChange={(e) => setInput(e.target.value)}
+                            value={input}
+                            onChange={(e) => setInput(e.target.value)}
                             ref={textareaRef}
                             onKeyDown={(e) => {
                                 if (e.key === 'Enter' && !e.shiftKey) {
@@ -44,7 +43,7 @@ const ChatInput = ({isDisabled, handleFormSubmit}: {isDisabled:boolean, handleFo
                         <Button 
                         className="absolute bottom-1.5 right-[8px]" 
                         aria-label='send message' 
-                        // disabled={loading || isDisabled}
+                        disabled={loading || isDisabled}
                         onClick={(e) => {
                             e.preventDefault()
                             handleFormSubmit()
