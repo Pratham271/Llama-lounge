@@ -21,6 +21,8 @@
     "axios": "^1.7.2",
     "cheerio": "^1.0.0-rc.12",
     "class-variance-authority": "^0.7.0",
+    "closevector-hnswlib-node": "^0.1.1",
+    "closevector-node": "^0.1.6",
     "clsx": "^2.1.1",
     "html-to-text": "^9.0.5",
     "jsdom": "^24.1.0",

@@ -3,9 +3,11 @@ import { compile } from "html-to-text";
 import { RecursiveUrlLoader } from "@langchain/community/document_loaders/web/recursive_url";
 import LinksRenderer from "@/components/LinksRenderer";
 import ChatWrapper from "@/components/chat/ChatWrapper";
+import { generateWebsiteVectorStore } from "@/actions/vectorStore";
 
 export default async function Home() {
-
+  const id = await generateWebsiteVectorStore()
+  console.log(id)
   return (
     <div className='flex-1 justify-between flex flex-col h-[calc(100vh-3.5rem)]'>
     <div className='mx-auto w-full max-w-8xl grow lg:flex xl:px-2'>
