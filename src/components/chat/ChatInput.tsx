@@ -9,7 +9,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 const ChatInput = ({isDisabled, handleFormSubmit}: {isDisabled:boolean, handleFormSubmit:()=>void}) => {
 
     const [input,setInput] = useRecoilState(inputAtom)
-    // const [disabled,setDisabled] = useRecoilState(inputBoxDisabledAtom)
+    const disabled = useRecoilValue(inputBoxDisabledAtom)
     const loading = useRecoilValue(loadingAtom)
 
     const textareaRef = useRef<HTMLTextAreaElement>(null)
@@ -43,7 +43,7 @@ const ChatInput = ({isDisabled, handleFormSubmit}: {isDisabled:boolean, handleFo
                         <Button 
                         className="absolute bottom-1.5 right-[8px]" 
                         aria-label='send message' 
-                        disabled={loading || isDisabled}
+                        disabled={loading || isDisabled || disabled}
                         onClick={(e) => {
                             e.preventDefault()
                             handleFormSubmit()
