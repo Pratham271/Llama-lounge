@@ -30,7 +30,7 @@ async function myAction(userMessage: string, prevMessages: Message[] ,model:stri
           })) : [];
 
         const results = await loadedVectorStore.similaritySearch(userMessage, 4);
-        console.log(results)
+        // console.log(results)
         
         const chatCompletion = await openai.chat.completions.create({
             

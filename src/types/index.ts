@@ -8,8 +8,8 @@ export interface Message {
 }
   
 export interface Sources{
-    content:string,
-    pageNumber: number
+    title:string,
+    source: string
 }
   
 export interface StreamMessage {

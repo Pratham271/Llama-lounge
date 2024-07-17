@@ -5,7 +5,7 @@ import { type AI } from '../../actions/chat';
 
 
 import UserMessageComponent from './UserMessageComponent'
-// import getSources from '../../actions/sources'
+
 import SourcesComponent from './SourcesComponent'
 
 
@@ -16,20 +16,21 @@ import { readStreamableValue, useActions } from 'ai/rsc';
 import { Message, StreamMessage } from '@/types';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { initialMessageAtom, inputAtom, inputBoxDisabledAtom } from '@/store/atoms';
+import getSources from '@/actions/sources';
 
 
 const ChatComponent = () => {
    // set up actions that will be used to stream all the messages  
   const {myAction} = useActions<typeof AI>();
-//   const loading = useRecoilValue(loadingAtom)
+
   const [messages, SetMessages] = useState<Message[]>([]);
   const [input,setInput] = useRecoilState(inputAtom)
   const [initialMessage,setInitialMessage] = useRecoilState(initialMessageAtom)
   const scrollRef = useRef<HTMLDivElement | null>(null)
   
-//   // const heading= useRecoilValue(headingAtom)
+
   const setDisabled = useSetRecoilState(inputBoxDisabledAtom)
-//   const [type, setType] = useRecoilState(typeAtom)
+
 //   // state for displaying the current llm response while streaming
   useEffect(()=> {
    
@@ -97,21 +98,21 @@ const handleUserMessageSubmission = async(userMessage:string) => {
       }
 
       
-    //   try {
-    // //   const sources = await getSources(userMessage);
-    //   SetMessages((prevMessages) => {
-    //     const updatedMessages = [...prevMessages];
-    //     const messageIndex = updatedMessages.findIndex(msg => msg.id === newMessageId);
-    //     if (messageIndex !== -1) {
-    //       // @ts-ignore
-    //       updatedMessages[messageIndex].sources = sources;
-    //     }
-    //     return updatedMessages;
-    //   });
+      try {
+      const sources = await getSources(userMessage);
+      SetMessages((prevMessages) => {
+        const updatedMessages = [...prevMessages];
+        const messageIndex = updatedMessages.findIndex(msg => msg.id === newMessageId);
+        if (messageIndex !== -1) {
+          // @ts-ignore
+          updatedMessages[messageIndex].sources = sources;
+        }
+        return updatedMessages;
+      });
       
-    // } catch (error) {
-    //   console.error("Error fetching sources:", error);
-    // }
+    } catch (error) {
+      console.error("Error fetching sources:", error);
+    }
     } catch (error) {
       console.error("Error streaming data for user message: ",error)
     }finally{

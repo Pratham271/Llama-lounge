@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown'
 import { Card, CardHeader, CardTitle, CardContent } from '../ui/card'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion'
 
-const SourcesComponent = ({sources}:{sources:{content:string, pageNumber:number}[]}) => {
+const SourcesComponent = ({sources}:{sources:{title:string, source:string}[]}) => {
   const hasSources = sources && sources.length>0
   return (
     <>
@@ -16,14 +16,14 @@ const SourcesComponent = ({sources}:{sources:{content:string, pageNumber:number}
                 <Accordion type='single' collapsible className='w-full font-medium text-md mt-5'>
                     <h1 className='font-bold'>Sources</h1>
                     {sources.map((source,index)=> (
-                        <AccordionItem value={`source-${index}`} key={index} className='pt-6 items-center'>
+                        <AccordionItem value={`source-${index}`} key={index} className='pt-1 items-center'>
                             <AccordionTrigger>{`Source ${index + 1}`}</AccordionTrigger>
                             <AccordionContent className='pt-4'>
-                                <ReactMarkdown className={"text-sm"}>
-                                    {source.content}
+                                <ReactMarkdown className={"text-lg"}>
+                                    {source.title}
                                 </ReactMarkdown>
                                 <br />
-                                <p className='text-sm'>Page Number: {source.pageNumber}</p>
+                                <p className='text-sm'>Link: <span className='text-blue-500 cursor-pointer hover:underline'>{source.source}</span></p>
                             </AccordionContent>
                         </AccordionItem>
                     ))}
