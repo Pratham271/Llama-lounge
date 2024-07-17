@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils"
 import { Providers } from "@/providers/Providers";
 import Appbar from "@/components/Appbar";
+import { AI } from "@/actions/chat";
  
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -26,10 +27,12 @@ export default function RootLayout({
           "min-h-screen bg-background font-sans antialiased",
           fontSans.variable
         )}>
-          <Providers>
-            <Appbar/>
-            {children}
-          </Providers>
+          <AI>
+            <Providers>
+              <Appbar/>
+              {children}
+            </Providers>
+          </AI>
         </body>
     </html>
   );
