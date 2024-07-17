@@ -1,7 +1,7 @@
 'use client';
 import React, { useRef } from 'react'
-import { Textarea } from './ui/textarea'
-import { Button } from './ui/button'
+import { Textarea } from '../ui/textarea'
+import { Button } from '../ui/button'
 import { PaperPlaneIcon } from '@radix-ui/react-icons'
 // import { useRecoilState, useRecoilValue } from 'recoil';
 // import { inputAtom, inputBoxDisabledAtom } from '../../store/atoms/input';

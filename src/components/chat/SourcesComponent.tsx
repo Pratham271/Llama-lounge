@@ -1,8 +1,8 @@
 import React from 'react'
 
 import ReactMarkdown from 'react-markdown'
-import { Card, CardHeader, CardTitle, CardContent } from './ui/card'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion'
+import { Card, CardHeader, CardTitle, CardContent } from '../ui/card'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion'
 
 const SourcesComponent = ({sources}:{sources:{content:string, pageNumber:number}[]}) => {
   const hasSources = sources && sources.length>0
