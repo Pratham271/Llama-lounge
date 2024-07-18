@@ -4,7 +4,6 @@ import { LogoIcon } from './ui/Icons'
 
 const Appbar = async() => {
 
-  
   return (
     <div className="flex justify-between items-center p-3 w-full top-0 bg-transparent z-50 border-b shadow-md">
         <div className="flex flex-row items-center gap-5 md:px-10">
