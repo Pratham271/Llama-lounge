@@ -11,7 +11,7 @@ import { IoLinkSharp } from "react-icons/io5";
 
 const LinksRenderer = () => {
   const setAIModel = useSetRecoilState(aiModelAtom)
-  const [displayAIModel, setDisplayAIModel] = useState("GPT-3.5-Turbo")
+  const [displayAIModel, setDisplayAIModel] = useState("GPT-4o")
   const setDocsAtom = useSetRecoilState(docsAtoms)
   const [displayDocs, setDisplayDocs] = useState("LangchainJS")
   const [url, setUrl] = useRecoilState(displayUrl)

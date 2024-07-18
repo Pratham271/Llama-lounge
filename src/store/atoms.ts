@@ -23,7 +23,7 @@ export const loadingAtom = atom({
 
 export const aiModelAtom = atom({
     key: "aiModelAtom",
-    default: "gpt-3.5-turbo"
+    default: "gpt-4o"
 })
 
 export const docsAtoms = atom({
@@ -33,5 +33,5 @@ export const docsAtoms = atom({
 
 export const displayUrl = atom({
     key: "displayUrl",
-    default: "https://js.langchain.com/v0.2/docs/integrations/platforms"
+    default: "https://developers.facebook.com/docs/marketing-apis"
 })

@@ -3,8 +3,8 @@ import { createAI, createStreamableValue } from "ai/rsc";
 import { embeddings } from '@/constants/embeddings';
 import { CloseVectorNode } from '@langchain/community/vectorstores/closevector/node';
 import { Message } from '@/types';
-
-
+import { ChatOpenAI, OpenAIEmbeddings } from "@langchain/openai";
+import { WebBrowser } from "langchain/tools/webbrowser";
 
 let openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
@@ -18,7 +18,7 @@ async function myAction(userMessage: string, prevMessages: Message[] ,model:stri
     (async () => {
         const startTime = new Date();
         const loadedVectorStore = await CloseVectorNode.loadFromCloud({
-            uuid: process.env.NEXT_VECTOR_STORE_UUID || "",
+            uuid: process.env.NEXT_VECTOR_FACEBOOK_MARKETING_UUID || "",
             embeddings,
             credentials: {
                 key: process.env.VOYAGE_LINKS_ACCESS_KEY,
@@ -37,7 +37,12 @@ async function myAction(userMessage: string, prevMessages: Message[] ,model:stri
 
         const results = await loadedVectorStore.similaritySearch(userMessage, 4);
         // console.log(results)
-        
+        const model = new ChatOpenAI({ temperature: 0 });
+        const browser = new WebBrowser({ model, embeddings });
+        const result = await browser.invoke(
+            `"https://developers.facebook.com/docs/marketing-api/best-practices",${userMessage}`
+          );
+        console.log("result: ", result)
         const chatCompletion = await openai.chat.completions.create({
             
             messages: 
@@ -69,7 +74,7 @@ async function myAction(userMessage: string, prevMessages: Message[] ,model:stri
             
         ],
         stream: true,
-        model: model?model:"gpt-3.5-turbo",
+        model: "gpt-4o",
 
         })
         console.log("chats",chatCompletion)

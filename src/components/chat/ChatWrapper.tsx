@@ -43,15 +43,6 @@ const ChatComponent = () => {
 
 
 
-const handleKeyPress = async (event:React.KeyboardEvent<HTMLInputElement>) => {
-  if(event.key==='Enter'  && !event.shiftKey){
-    const messageToSend = input.trim();
-    setInput('')
-  if(!messageToSend) return;
-  await handleUserMessageSubmission(messageToSend)
-  }
-}
-
 const handleFormSubmit = async() => {
   const messageToSend = input.trim();
   setInput('')
