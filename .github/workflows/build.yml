@@ -30,4 +30,4 @@ jobs:
       - name: Run Build
         run: yarn build
     env:
-#         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
