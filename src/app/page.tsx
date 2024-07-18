@@ -6,6 +6,7 @@ import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
+export const maxDuration = 30;
 export default async function Home() {
   // const id = await generateWebsiteVectorStore()
   // console.log(id)
