@@ -1,12 +1,7 @@
 {
     "functions": {
-        "api/actions/chat": {
-            "memory": 512,
-            "maxDuration": 30
-        },
-        "api/actions/sources": {
-            "memory": 512,
-            "maxDuration": 30
+        "app/**/*": {
+            "maxDuration": 60
           }
     }
   }
