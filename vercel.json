@@ -1,12 +1,10 @@
 {
     "functions": {
         "api/actions/chat": {
-            "handler": "src/actions/chat.handler",
             "memory": 512,
             "maxDuration": 30
-          },
-          "api/actions/sources": {
-            "handler": "src/actions/sources.handler",
+        },
+        "api/actions/sources": {
             "memory": 512,
             "maxDuration": 30
           }
