@@ -30,3 +30,8 @@ export const docsAtoms = atom({
     key: "DocsAtom",
     default: "langchainJS"
 })
+
+export const displayUrl = atom({
+    key: "displayUrl",
+    default: "https://js.langchain.com/v0.2/docs/integrations/platforms"
+})

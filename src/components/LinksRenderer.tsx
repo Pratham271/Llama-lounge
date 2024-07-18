@@ -5,8 +5,8 @@ import { DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu'
 import { Button } from './ui/button'
 import { RiOpenaiFill } from "react-icons/ri";
 import { FaChevronDown } from "react-icons/fa6";
-import { useSetRecoilState } from 'recoil';
-import { aiModelAtom, docsAtoms } from '@/store/atoms';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { aiModelAtom, displayUrl, docsAtoms } from '@/store/atoms';
 import { IoLinkSharp } from "react-icons/io5";
 
 const LinksRenderer = () => {
@@ -14,6 +14,7 @@ const LinksRenderer = () => {
   const [displayAIModel, setDisplayAIModel] = useState("GPT-3.5-Turbo")
   const setDocsAtom = useSetRecoilState(docsAtoms)
   const [displayDocs, setDisplayDocs] = useState("LangchainJS")
+  const [url, setUrl] = useRecoilState(displayUrl)
   return (
     <>
       <div className="h-14 w-full border-b border-zinc-200 flex items-center justify-between px-2">
@@ -59,18 +60,21 @@ const LinksRenderer = () => {
               <DropdownMenuItem onSelect={() => {
                 setDocsAtom("langchainJS")
                 setDisplayDocs("LangchainJS")
+                setUrl("https://js.langchain.com/v0.2/docs/integrations/platforms")
               }}>
                 Langchain-JS
               </DropdownMenuItem>
               <DropdownMenuItem onSelect={() => {
                 setDocsAtom("langchain")
                 setDisplayDocs("Langchain")
+                setUrl("https://python.langchain.com/v0.2/docs/integrations/platforms/")
               }}>
                 Langchain
               </DropdownMenuItem>
               <DropdownMenuItem onSelect={() => {
                 setDocsAtom("llama-index")
                 setDisplayDocs("LLama-Index")
+                setUrl("https://docs.llamaindex.ai/en/stable/")
               }}>
                 LLama-Index
               </DropdownMenuItem>
@@ -80,7 +84,7 @@ const LinksRenderer = () => {
       </div>
       <div className="w-full rounded-md shadow flex flex-col items-center mt-12 ">
         <div className="flex-1 w-full max-h-full">
-          <iframe src="https://js.langchain.com/v0.2/docs/integrations/platforms" className='h-[calc(100vh-6rem)] w-full'></iframe>
+          <iframe src={url} className='h-[calc(100vh-6rem)] w-full'></iframe>
         </div>
       </div>
     </>
