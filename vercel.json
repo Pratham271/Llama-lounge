@@ -1,6 +1,9 @@
 {
     "functions": {
-      "src/actions/*.ts": {
+      "src/actions/chat.ts": {
+        "maxDuration": 60
+      },
+      "src/actions/sources.ts": {
         "maxDuration": 60
       }
     }
