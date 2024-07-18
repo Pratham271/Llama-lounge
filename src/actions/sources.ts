@@ -7,7 +7,7 @@ export default async function getSources(userMessage:string){
     console.log("Inside getSources")
 
     const loadedVectorStore = await CloseVectorNode.loadFromCloud({
-        uuid: process.env.NEXT_VECTOR_STORE_UUID || "",
+        uuid: process.env.NEXT_VECTOR_FACEBOOK_MARKETING_UUID || "",
         embeddings,
         credentials: {
             key: process.env.VOYAGE_LINKS_ACCESS_KEY,
