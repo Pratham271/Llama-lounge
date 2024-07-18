@@ -1,10 +1,14 @@
 {
     "functions": {
-      "src/actions/chat.ts": {
-        "maxDuration": 60
-      },
-      "src/actions/sources.ts": {
-        "maxDuration": 60
-      }
+        "api/actions/chat": {
+            "handler": "src/actions/chat.handler",
+            "memory": 512,
+            "maxDuration": 30
+          },
+          "api/actions/sources": {
+            "handler": "src/actions/sources.handler",
+            "memory": 512,
+            "maxDuration": 30
+          }
     }
   }
