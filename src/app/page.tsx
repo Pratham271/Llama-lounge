@@ -2,10 +2,17 @@
 import LinksRenderer from "@/components/LinksRenderer";
 import ChatWrapper from "@/components/chat/ChatWrapper";
 import { generateWebsiteVectorStore } from "@/actions/vectorStore";
+import { authOptions } from "@/lib/auth";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
 export default async function Home() {
   // const id = await generateWebsiteVectorStore()
   // console.log(id)
+  const session = await getServerSession(authOptions)
+  if(!session?.user){
+    redirect("/signin")
+  }
   return (
     <div className='flex-1 justify-between flex flex-col h-[calc(100vh-3.5rem)]'>
     <div className='mx-auto w-full max-w-8xl grow lg:flex xl:px-2'>
