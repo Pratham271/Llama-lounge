@@ -1,6 +1,6 @@
 {
     "functions": {
-      "src/actions/**/*.ts": {
+      "src/actions/*.ts": {
         "maxDuration": 60
       }
     }
