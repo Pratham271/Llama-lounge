@@ -1,29 +1,26 @@
-# Use Node.js version 18 with Alpine, specifying the platform to match your architecture
-FROM --platform=$BUILDPLATFORM node:18-alpine
+# Use the specified Node.js version
+FROM node:20.6.1
 
-# Install dependencies required for building native modules
-RUN apk add --no-cache \
-    g++ \
-    make \
-    python3
+# Set the version of pnpm to install
+ARG PNPM_VERSION=8.7.1
 
-# Set the working directory
+# Install pnpm globally
+RUN npm install -g pnpm@${PNPM_VERSION}
+
+# Set the working directory inside the container
 WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json
-COPY package*.json yarn.lock ./
-
-# Install dependencies, ensuring native modules are built from source
-RUN yarn install
-
-# Copy the rest of the application source code
+# Copy the entire project to the working directory
 COPY . .
 
-# Build the Next.js application
-RUN yarn build
+# Install dependencies using pnpm
+RUN pnpm install
+
+# Build the application
+RUN pnpm run build
 
 # Expose the port the app runs on
 EXPOSE 3000
 
 # Start the application
-CMD ["yarn", "start"]
+CMD ["pnpm", "run", "start"]
