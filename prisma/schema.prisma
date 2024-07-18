@@ -17,5 +17,6 @@ model User {
   id       String     @id @default(cuid())
   username String     @unique
   password String
+  token    String? 
 
 }
