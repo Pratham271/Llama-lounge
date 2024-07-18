@@ -16,8 +16,6 @@ export default async function getSources(userMessage:string){
     });
     try {
         const results = await loadedVectorStore.similaritySearch(userMessage, 4);
-        console.log("sources: ",results)
-        console.log("loc: ",results[0].metadata.loc)
         let sources: { title: string, source: string }[] = [];
         
         results.map((c,index) => {

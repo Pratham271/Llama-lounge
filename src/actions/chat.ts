@@ -5,6 +5,7 @@ import { CloseVectorNode } from '@langchain/community/vectorstores/closevector/n
 import { Message } from '@/types';
 
 
+
 let openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 })
@@ -15,6 +16,7 @@ async function myAction(userMessage: string, prevMessages: Message[] ,model:stri
     const streamable = createStreamableValue({});
 
     (async () => {
+        const startTime = new Date();
         const loadedVectorStore = await CloseVectorNode.loadFromCloud({
             uuid: process.env.NEXT_VECTOR_STORE_UUID || "",
             embeddings,
@@ -23,6 +25,10 @@ async function myAction(userMessage: string, prevMessages: Message[] ,model:stri
                 secret: process.env.VOYAGE_LINKS_SECRET,
             },
         });
+        const endTime = new Date();
+        const elapsedTime = endTime.getTime() - startTime.getTime(); // Time difference in milliseconds
+
+        console.log(`Loading took ${elapsedTime} milliseconds.`);
         const formattedPrevMessages = prevMessages ? prevMessages.map((msg) => ({
             role: msg.type,
             content: msg.content,
