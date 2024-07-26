@@ -18,7 +18,7 @@ async function myAction(userMessage: string, prevMessages: Message[] ,model:stri
     (async () => {
         const startTime = new Date();
         const loadedVectorStore = await CloseVectorNode.loadFromCloud({
-            uuid: process.env.NEXT_VECTOR_FACEBOOK_MARKETING_UUID || "",
+            uuid: process.env.NEXT_VECTOR_STORE_UUID || "",
             embeddings,
             credentials: {
                 key: process.env.VOYAGE_LINKS_ACCESS_KEY,
