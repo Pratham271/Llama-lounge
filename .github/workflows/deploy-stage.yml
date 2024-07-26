@@ -1,30 +1,30 @@
-# name: Build and Deploy to Docker Hub
+name: Build and Deploy to Docker Hub
 
-# on:
-#   push:
-#     branches:
-#       - main
+on:
+  push:
+    branches:
+      - main
 
-# jobs:
-#   build-and-push:
-#     runs-on: ubuntu-latest
-#     steps:
-#     - name: Check Out Repo
-#       uses: actions/checkout@v2
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check Out Repo
+      uses: actions/checkout@v2
 
-#     - name: Log in to Docker Hub
-#       uses: docker/login-action@v1
-#       with:
-#         username: ${{ secrets.DOCKER_USERNAME }}
-#         password: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
 
-#     - name: Build and Push Docker image
-#       uses: docker/build-push-action@v2
-#       with:
-#         context: .
-#         file: ./Dockerfile
-#         push: true
-#         tags: pratham221/settle:latest  # Replace with your Docker Hub username and repository
+    - name: Build and Push Docker image
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        file: ./Dockerfile
+        push: true
+        tags: pratham221/llama-lounge:2  # Replace with your Docker Hub username and repository
 
-#     - name: Verify Pushed Image
-#       run: docker pull pratham221/settle:latest  # Replace with your Docker Hub username and repository
+    - name: Verify Pushed Image
+      run: docker pull pratham221/llama-lounge:2  # Replace with your Docker Hub username and repository

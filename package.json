@@ -45,6 +45,7 @@
     "next": "14.2.5",
     "next-auth": "^4.24.7",
     "next-themes": "^0.3.0",
+    "openai": "^4.53.1",
     "prisma": "^5.17.0",
     "react": "^18",
     "react-dom": "^18",

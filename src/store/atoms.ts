@@ -33,5 +33,5 @@ export const docsAtoms = atom({
 
 export const displayUrl = atom({
     key: "displayUrl",
-    default: "https://developers.facebook.com/docs/marketing-apis"
+    default: "https://js.langchain.com/v0.2/docs/integrations/platforms/"
 })
