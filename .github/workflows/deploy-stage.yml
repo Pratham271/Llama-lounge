@@ -24,7 +24,7 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: pratham221/llama-lounge:2  # Replace with your Docker Hub username and repository
+        tags: pratham221/llama-lounge:new  # Replace with your Docker Hub username and repository
 
     - name: Verify Pushed Image
-      run: docker pull pratham221/llama-lounge:2  # Replace with your Docker Hub username and repository
+      run: docker pull pratham221/llama-lounge:new  # Replace with your Docker Hub username and repository
