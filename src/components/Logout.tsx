@@ -13,7 +13,7 @@ const Logout = () => {
     const name = session.data?.user?.name
   return (
     <div>
-        <Button className='mr-4' onClick={async()=> {
+        <Button className="mr-4" onClick={async()=> {
             await logout(name || "")
             signOut()
             router.push("/")
