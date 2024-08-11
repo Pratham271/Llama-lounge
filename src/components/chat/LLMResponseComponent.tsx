@@ -50,7 +50,7 @@ const LlmResponseComponent = ({content}:{content:string}) => {
                             return(
                               <div className='relative'>
                               <pre id={`pretag-${currentIndex}`} {...props} className="bg-[#eeeaea] rounded-md m-[12px] p-[8px] dark:bg-gray-800" />
-                              <button onClick={() => handleCopy(currentIndex)} className='absolute top-2 right-5 flex text-sm items-center font-light '>
+                              <button onClick={() => handleCopy(currentIndex)} className="absolute top-2 right-5 flex text-sm items-center font-light">
                                 {copyStatus[currentIndex] ? "Copied" : <CopyIcon />} {copyStatus[currentIndex] ? null : <p className="text-sm font-base"></p>}
                               </button>
                             </div>
