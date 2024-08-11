@@ -35,7 +35,7 @@ const LlmResponseComponent = ({content}:{content:string}) => {
     <>
        {hasLLMResponse ? (
         <Card className="flex flex-col justify-center align-middle">
-        <CardHeader className='px-3'>
+        <CardHeader className="px-3">
             <CardTitle className='flex justify-between'>
             Answer  
             </CardTitle>
