@@ -75,7 +75,7 @@ const LlmResponseComponent = ({content}:{content:string}) => {
         </CardContent>
         <CardFooter></CardFooter>
       </Card>
-       ): <div className='bg-white shadow-lg dark:bg-transparent rounded-md'><LLmSkeleton/></div>}
+       ): <div className="bg-white shadow-lg dark:bg-transparent rounded-md"><LLmSkeleton/></div>}
        
     </>
   )
