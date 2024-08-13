@@ -10,7 +10,7 @@ const UserMessageComponent = ({userMessage}:{userMessage:string}) => {
                 <CardTitle>
                 </CardTitle>
             </CardHeader>
-            <CardContent className='text-md items-center'>
+            <CardContent className="text-md items-center">
                 <Markdown components={{
                             code: ({ node, ...props }) => (
                                 <code  {...props} className="bg-[#eeeaea] rounded p-[1.5px]  dark:bg-gray-800" />
