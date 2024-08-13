@@ -128,7 +128,7 @@ const handleUserMessageSubmission = async(userMessage:string) => {
             <div key={`llm-${index}`} className="mt-3 lg:flex justify-start">
              <LLMResponseComponent content={message.content}/>
             </div>
-          <div className='mt-3'>
+          <div className="mt-3">
             {/* @ts-ignore */}
             { <SourcesComponent sources={message.sources} />}
           </div>
