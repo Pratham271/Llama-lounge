@@ -121,7 +121,7 @@ const handleUserMessageSubmission = async(userMessage:string) => {
         {messages.length>0 && messages.map((message,index) => (
           <div key={`message-${index}`} className="px-6 mt-4">
           {message.type === 'userMessage' && (
-            <div key={`userMessage-${index}`} className='flex justify-end'>
+            <div key={`userMessage-${index}`} className="flex justify-end">
              <UserMessageComponent userMessage={message.userMessage}/> 
             </div>
           )}
