@@ -13,7 +13,7 @@ const SourcesComponent = ({sources}:{sources:{title:string, source:string}[]}) =
         <CardTitle>
            <CardContent>
            {sources && sources.length>0 && (
-                <Accordion type='single' collapsible className='w-full font-medium text-md mt-5'>
+                <Accordion type='single' collapsible className="w-full font-medium text-md mt-5">
                     <h1 className='font-bold'>Sources</h1>
                     {sources.map((source,index)=> (
                         <AccordionItem value={`source-${index}`} key={index} className='pt-1 items-center'>
