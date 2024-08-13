@@ -23,7 +23,7 @@ const SourcesComponent = ({sources}:{sources:{title:string, source:string}[]}) =
                                     {source.title}
                                 </ReactMarkdown>
                                 <br />
-                                <p className="text-sm">Link: <span className='text-blue-500 cursor-pointer hover:underline'>{source.source}</span></p>
+                                <p className="text-sm">Link: <span className="text-blue-500 cursor-pointer hover:underline">{source.source}</span></p>
                             </AccordionContent>
                         </AccordionItem>
                     ))}
