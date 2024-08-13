@@ -117,7 +117,7 @@ const handleUserMessageSubmission = async(userMessage:string) => {
           <h1 className="flex justify-center mt-16 z-10 text-2xl md:text-7xl  bg-clip-text text-transparent bg-gradient-to-b dark:from-neutral-200 dark:to-neutral-600  text-center font-sans font-bold from-stone-400 to-stone-800">Hi There</h1> 
           <h1 className="text-center lg:mt-5 mt-3 text-lg lg:text-3xl font-bold dark:text-neutral-500 text-neutral-700"> <p className="align-start">Welcome back! <br />  How can I help you today?</p></h1>
         </div>}
-        <div className='mb-32 mt-20'>
+        <div className="mb-32 mt-20">
         {messages.length>0 && messages.map((message,index) => (
           <div key={`message-${index}`} className='px-6 mt-4'>
           {message.type === 'userMessage' && (
