@@ -9,7 +9,7 @@ const SourcesComponent = ({sources}:{sources:{title:string, source:string}[]}) =
   return (
     <>
     {hasSources? (<Card className="w-full">
-      <CardHeader className='px-1'>
+      <CardHeader className="px-1">
         <CardTitle>
            <CardContent>
            {sources && sources.length>0 && (
