@@ -125,7 +125,7 @@ const handleUserMessageSubmission = async(userMessage:string) => {
              <UserMessageComponent userMessage={message.userMessage}/> 
             </div>
           )}
-            <div key={`llm-${index}`} className='mt-3 lg:flex justify-start'>
+            <div key={`llm-${index}`} className="mt-3 lg:flex justify-start">
              <LLMResponseComponent content={message.content}/>
             </div>
           <div className='mt-3'>
