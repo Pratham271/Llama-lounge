@@ -18,7 +18,7 @@ const SourcesComponent = ({sources}:{sources:{title:string, source:string}[]}) =
                     {sources.map((source,index)=> (
                         <AccordionItem value={`source-${index}`} key={index} className="pt-1 items-center">
                             <AccordionTrigger>{`Source ${index + 1}`}</AccordionTrigger>
-                            <AccordionContent className='pt-4'>
+                            <AccordionContent className="pt-4">
                                 <ReactMarkdown className={"text-lg"}>
                                     {source.title}
                                 </ReactMarkdown>
