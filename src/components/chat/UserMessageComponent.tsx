@@ -5,8 +5,8 @@ import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '../ui/card
 const UserMessageComponent = ({userMessage}:{userMessage:string}) => {
   return (
     <>
-       <Card className='flex flex-col justify-center align-middle'>
-            <CardHeader className='px-6'>
+       <Card className="flex flex-col justify-center align-middle">
+            <CardHeader className="px-6">
                 <CardTitle>
                 </CardTitle>
             </CardHeader>
