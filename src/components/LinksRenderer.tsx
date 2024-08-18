@@ -53,7 +53,7 @@ const LinksRenderer = () => {
             <DropdownMenuTrigger asChild>
               <Button aria-label='openai' variant={"ghost"}>
                 <IoLinkSharp className="h-4 w-4"/>
-                <p className="px-1">{displayDocs}</p> <FaChevronDown className='h-2.5 w-2.5 opacity-50'/>
+                <p className="px-1">{displayDocs}</p> <FaChevronDown className="h-2.5 w-2.5 opacity-50"/>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
