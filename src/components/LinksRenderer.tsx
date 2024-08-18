@@ -84,7 +84,7 @@ const LinksRenderer = () => {
       </div>
       <div className="w-full rounded-md shadow flex flex-col items-center mt-12 ">
         <div className="flex-1 w-full max-h-full">
-          <iframe src={url} className='h-[calc(100vh-10rem)] w-full'></iframe>
+          <iframe src={url} className="h-[calc(100vh-10rem)] w-full"></iframe>
         </div>
       </div>
     </>
